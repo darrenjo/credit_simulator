@@ -15,12 +15,20 @@ public abstract class Vehicle {
         this.downPayment = downPayment;
     }
 
-    public int getTenor() {
-        return tenor;
+    public String getCondition() {
+        return condition;
+    }
+
+    public int getYear() {
+        return year;
     }
 
     public double getTotalLoan() {
         return totalLoan;
+    }
+
+    public int getTenor() {
+        return tenor;
     }
 
     public double getDownPayment() {

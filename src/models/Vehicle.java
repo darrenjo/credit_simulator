@@ -6,6 +6,7 @@ public abstract class Vehicle {
     protected double totalLoan;
     protected int tenor;
     protected double downPayment;
+    protected String vehicleType;
 
     public Vehicle(String condition, int year, double totalLoan, int tenor, double downPayment) {
         this.condition = condition;
@@ -13,6 +14,14 @@ public abstract class Vehicle {
         this.totalLoan = totalLoan;
         this.tenor = tenor;
         this.downPayment = downPayment;
+    }
+
+    public String getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(String type) {
+        this.vehicleType = type;
     }
 
     public String getCondition() {

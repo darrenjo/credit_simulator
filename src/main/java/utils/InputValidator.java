@@ -49,26 +49,38 @@ public class InputValidator {
     }
 
     public static int validateYear(String input) {
-        int year = Integer.parseInt(input.trim());
-        if (year < 1000 || year > 9999) {
-            throw new IllegalArgumentException("Tahun harus 4 digit valid.");
+        try {
+            int year = Integer.parseInt(input.trim());
+            if (year < 1000 || year > 9999) {
+                throw new IllegalArgumentException("Tahun harus 4 digit valid.");
+            }
+            return year;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Tahun harus berupa angka 4 digit yang valid.");
         }
-        return year;
     }
 
     public static int validateTenor(String input) {
-        int tenor = Integer.parseInt(input.trim());
-        if (tenor < 1 || tenor > 6) {
-            throw new IllegalArgumentException("Tenor harus 1 sampai 6 tahun.");
+        try {
+            int tenor = Integer.parseInt(input.trim());
+            if (tenor < 1 || tenor > 6) {
+                throw new IllegalArgumentException("Tenor harus 1 sampai 6 tahun.");
+            }
+            return tenor;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Tenor harus berupa angka antara 1 sampai 6.");
         }
-        return tenor;
     }
 
     public static double validatePositiveDouble(String input, String label) {
-        double value = Double.parseDouble(input.trim());
-        if (value < 0) {
-            throw new IllegalArgumentException(label + " harus lebih dari atau sama dengan 0.");
+        try {
+            double value = Double.parseDouble(input.trim());
+            if (value <= 0) {
+                throw new IllegalArgumentException(label + " harus lebih dari 0.");
+            }
+            return value;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(label + " harus berupa angka yang valid.");
         }
-        return value;
     }
 }

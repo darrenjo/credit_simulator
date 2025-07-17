@@ -146,10 +146,10 @@ credit_simulator/
 ## ⚙️ CI/CD Pipeline
 
 The project includes GitLab CI configuration that automatically:
-1. **Compiles** the code using Maven
-2. **Runs unit tests** with JUnit
-3. **Packages** into executable JAR
-4. **Builds Docker image** and pushes to Docker Hub (when configured)
+1. ✅ **Build**: Compiles Java source code
+2. ✅ **Test**: Runs unit tests with JUnit
+3. ✅ **Package**: Creates executable JAR
+4. 🔧 **Deploy**: Docker Hub deployment (configurable with credentials)
 
 ## 🖥️ Platform Compatibility
 

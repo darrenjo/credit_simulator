@@ -21,7 +21,7 @@ public class CreditCalculatorTest {
         assert result.vehicleType.equals("Motor") : "Vehicle type should be Motor";
         assert result.vehicleCondition.equals("Baru") : "Vehicle condition should be Baru";
         assert result.vehicleYear == 2025 : "Vehicle year should be 2025";
-        assert result.loanTenure == 3 : "Loan tenure should be 3 years";
+        assert result.loanTenor == 3 : "Loan tenure should be 3 years";
 
         System.out.println("All tests for CreditCalculator passed.");
     }

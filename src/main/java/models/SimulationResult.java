@@ -8,7 +8,7 @@ public class SimulationResult {
     public String vehicleCondition;
     public int vehicleYear;
     public double totalLoan;
-    public int loanTenure;
+    public int loanTenor;
     public double downPayment;
     public List<String> results = new ArrayList<>();
 }

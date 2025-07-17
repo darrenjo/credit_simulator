@@ -37,7 +37,7 @@ public class ApiService {
                     data.get("vehicleCondition"),
                     Integer.parseInt(data.get("vehicleYear")),
                     Double.parseDouble(data.get("totalLoanAmount")),
-                    Integer.parseInt(data.get("loanTenure")),
+                    Integer.parseInt(data.get("loanTenor")),
                     Double.parseDouble(data.get("downPayment")));
 
             InputValidator.validateVehicle(vehicle);

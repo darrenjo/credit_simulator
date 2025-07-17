@@ -46,7 +46,7 @@ public class CommandHandler {
         System.out.println("Vehicle Year: " + result.vehicleYear);
         System.out.println("Total Loan Amount: Rp. " + String.format("%,.0f", result.totalLoan));
         System.out.println("Down Payment: Rp. " + String.format("%,.0f", result.downPayment));
-        System.out.println("Loan Tenure: " + result.loanTenure + " years");
+        System.out.println("Loan Tenure: " + result.loanTenor + " years");
         System.out.println("\n=== MONTHLY INSTALLMENTS ===");
 
         for (String monthlyResult : result.results) {
@@ -92,7 +92,7 @@ public class CommandHandler {
             writer.write("Total Loan Amount: Rp. " + String.format("%,.0f", result.totalLoan) + "\n");
             writer.write("Down Payment: Rp. " + String.format("%,.0f", result.downPayment) + "\n");
             writer.write("Loan Amount: Rp. " + String.format("%,.0f", (result.totalLoan - result.downPayment)) + "\n");
-            writer.write("Loan Tenure: " + result.loanTenure + " years\n");
+            writer.write("Loan Tenure: " + result.loanTenor + " years\n");
             writer.write("\n");
 
             // Write monthly installments

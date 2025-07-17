@@ -12,7 +12,7 @@ public class CreditCalculator {
         sim.vehicleCondition = vehicle.getCondition();
         sim.vehicleYear = vehicle.getYear();
         sim.totalLoan = vehicle.getTotalLoan();
-        sim.loanTenure = vehicle.getTenor();
+        sim.loanTenor = vehicle.getTenor();
         sim.downPayment = vehicle.getDownPayment();
 
         double baseInterest = vehicle.getBaseInterestRate();

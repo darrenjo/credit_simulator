@@ -40,7 +40,6 @@ public class Main {
                     break;
                 case "3":
                     showAvailableCommands();
-                    // Don't exit here - continue the loop to show menu again
                     break;
                 case "4":
                     System.out.println("Exiting application...");
@@ -80,7 +79,6 @@ public class Main {
             System.out.println("\n=== LOADING FROM API ===");
             services.ApiService.loadFromApi();
 
-            // After API load, show result management commands (no load option)
             runResultCommands(false); // false = don't show load option
 
         } catch (Exception e) {
@@ -107,14 +105,13 @@ public class Main {
                         data.get("vehicleCondition"),
                         Integer.parseInt(data.get("vehicleYear")),
                         Double.parseDouble(data.get("totalLoanAmount")),
-                        Integer.parseInt(data.get("loanTenure")),
+                        Integer.parseInt(data.get("loanTenor")),
                         Double.parseDouble(data.get("downPayment")));
 
                 InputValidator.validateVehicle(vehicle);
                 SimulationResult result = CreditCalculator.calculate(vehicle);
                 SimulationState.lastResult = result;
 
-                // After file input, show result management commands (no load option)
                 runResultCommands(false); // false = don't show load option
 
             } else {
@@ -150,7 +147,6 @@ public class Main {
             SimulationResult result = CreditCalculator.calculate(vehicle);
             SimulationState.lastResult = result;
 
-            // After manual input, show result management commands (no load option)
             runResultCommands(false); // false = don't show load option
 
         } catch (Exception e) {
@@ -175,7 +171,6 @@ public class Main {
                 break;
             }
 
-            // If load command is used but not allowed, show error
             if (input.equalsIgnoreCase("load") && !showLoadOption) {
                 System.out.println("Load command not available in this context. Use 'Load from API' in main menu.");
                 continue;

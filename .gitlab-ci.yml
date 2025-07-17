@@ -1,0 +1,57 @@
+image: maven:3.9-openjdk-24
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository/
+
+stages:
+  - build
+  - test
+  - package
+  - deploy
+
+build:
+  stage: build
+  script:
+    - mvn clean compile
+  artifacts:
+    paths:
+      - target/
+    expire_in: 1 hour
+
+test:
+  stage: test
+  script:
+    - mvn test
+  artifacts:
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+
+package:
+  stage: package
+  script:
+    - mvn package -DskipTests
+  artifacts:
+    paths:
+      - target/*.jar
+    expire_in: 1 week
+
+# Docker Hub deployment (optional)
+deploy_docker:
+  stage: deploy
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USERNAME --password-stdin
+  script:
+    - docker build -t $DOCKER_HUB_USERNAME/credit-simulator:$CI_COMMIT_SHORT_SHA .
+    - docker build -t $DOCKER_HUB_USERNAME/credit-simulator:latest .
+    - docker push $DOCKER_HUB_USERNAME/credit-simulator:$CI_COMMIT_SHORT_SHA
+    - docker push $DOCKER_HUB_USERNAME/credit-simulator:latest
+  only:
+    - main

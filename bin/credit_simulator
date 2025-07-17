@@ -1,2 +1,17 @@
-javac -d out $(find src -name "*.java")
-java -cp out Main "$@"
+#!/bin/bash
+# ./bin/credit_simulator
+
+# Create output directory if it doesn't exist
+mkdir -p out
+
+# Compile all Java files
+javac -cp src -d out $(find src -name "*.java")
+
+# Check if compilation was successful
+if [ $? -eq 0 ]; then
+    echo "Compilation successful. Starting Credit Simulator..."
+    java -cp out Main "$@"
+else
+    echo "Compilation failed. Please check your Java files."
+    exit 1
+fi

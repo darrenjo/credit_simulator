@@ -3,6 +3,6 @@
   "vehicleCondition": "Baru",
   "vehicleYear": 2025,
   "totalLoanAmount": 150000000,
-  "loanTenure": 4,
+  "loanTenor": 4,
   "downPayment": 60000000
 }

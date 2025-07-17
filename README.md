@@ -82,7 +82,7 @@ java -ea -cp target/classes:target/test-classes test.InputValidatorTest
 ### Build and run with Docker:
 ```bash
 # Build the image
-docker build -t credit-simulator .
+docker build -t credit-simulator . --no-cache
 
 # Run interactively
 docker run -it credit-simulator

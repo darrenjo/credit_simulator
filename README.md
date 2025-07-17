@@ -1,11 +1,24 @@
 # Credit Simulator CLI
 
+A Java console application for simulating vehicle loan payments (Car/Motorcycle) with comprehensive validation, file input, API integration, and CLI commands. Built with Maven and ready for Docker deployment.
+
 ## 🚀 How to Run
 
 ### Prerequisites
 - Java 24 or higher
 - Maven 3.9+ (for building with Maven)
 - Docker (optional, for containerized deployment)
+
+### Quick Start (Windows)
+```cmd
+run.bat
+```
+
+### Quick Start (Linux/macOS)
+```bash
+chmod +x run.sh
+./run.sh
+```
 
 ### With Maven (Recommended)
 ```bash
@@ -129,3 +142,18 @@ credit_simulator/
 ├── file_inputs.txt          # Sample input file
 └── README.md               # This file
 ```
+
+## ⚙️ CI/CD Pipeline
+
+The project includes GitLab CI configuration that automatically:
+1. **Compiles** the code using Maven
+2. **Runs unit tests** with JUnit
+3. **Packages** into executable JAR
+4. **Builds Docker image** and pushes to Docker Hub (when configured)
+
+## 🖥️ Platform Compatibility
+
+- ✅ **Linux**: Native support with shell scripts
+- ✅ **macOS**: Compatible with Unix-based commands  
+- ✅ **Windows**: Batch file provided for easy execution
+- ✅ **Docker**: Containerized deployment for any platform

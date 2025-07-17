@@ -1,4 +1,4 @@
-FROM maven:3.9.10-amazoncorretto-24 AS build
+FROM maven:3.9-amazoncorretto-21 AS build
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ COPY file_inputs.txt ./
 
 RUN mvn clean compile package -DskipTests
 
-FROM amazoncorretto:24
+FROM amazoncorretto:21
 
 WORKDIR /app
 
